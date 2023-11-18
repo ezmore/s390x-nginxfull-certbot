@@ -6,7 +6,10 @@ on:
       - nginxcertbot*
   pull_request:
     branches: [ "main" ]
-
+env:
+  APP_NAME: s390x-npm
+  DOCKERHUB_REPO: s390x/nginx:stable-bullseye-perl
+  APP_VERSION: v1.0.1
 jobs:
 
   build:
@@ -35,4 +38,4 @@ jobs:
             APP_VERSION=${{ env.APP_VERSION }}
           tags: |
             NginxNodeCertbot
-     run: docker build . --file Dockerfile --tag s390x-node18-nginx-certbot:$(date +%s)
+#        run: docker build . --file Dockerfile --tag s390x-node18-nginx-certbot:$(date +%s)
